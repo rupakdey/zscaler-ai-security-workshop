@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+
+<html data-theme="light" lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Zscaler AI Security Workshop - Lab Guide" name="description"/>
+<title>Lab 3 · Zscaler AI Security Workshop - Lab Guide</title>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/styles.css" rel="stylesheet"/>
+</head>
+<body data-all-tasks='["task-0.1-verify-lab-access", "task-0.2-use-the-lab-clipboard", "task-1.1-enter-a-direct-prompt", "task-1.2-submit-a-role-play-prompt", "task-1.3-share-sensitive-data-with-a-public-ai-tool", "task-1.4-prompt-the-ai-to-identify-attack-type-and-risk-level", "task-2.1-access-the-zscaler-ai-guardrails-zguard-console", "task-2.2-create-a-guardrails-configuration-for-code-detection", "task-2.3-create-a-control-and-bind-the-configuration", "task-2.4-test-and-verify-the-code-guardrail", "task-2.5-configure-additional-detectors", "task-2.6-test-the-additional-detectors", "task-2.7-configure-pii-masking", "task-3.0-access-the-solutions-demo-center", "task-3.1-explore-ai-traffic-patterns-and-model-risks", "task-3.2-explore-the-app-inventory-page", "task-3.3-explore-ai-assets", "task-3.4-explore-red-teaming-and-the-probe-catalog", "task-3.5-review-scheduled-test-runs-and-completed-test-runs", "task-3.6-explore-failed-probe-evidence"]' data-page-count="7" data-page-index="4" data-page-start-id="lab-3-see-it-stress-test-it-secure-it-ai-protect-meets-red-teaming" data-section-order='["about-the-zscalers-ai-security-workshop-hands-on-lab", "lab-0-connect-to-the-virtual-lab-environment", "task-0.1-verify-lab-access", "task-0.2-use-the-lab-clipboard", "lab-1-jailbreaks-overshares-ai-assisted-sleuthing", "task-1.1-enter-a-direct-prompt", "task-1.2-submit-a-role-play-prompt", "task-1.3-share-sensitive-data-with-a-public-ai-tool", "task-1.4-prompt-the-ai-to-identify-attack-type-and-risk-level", "lab-2-configure-and-test-llm-guardrails-with-zscaler-ai-guardrails-zguard", "task-2.1-access-the-zscaler-ai-guardrails-zguard-console", "task-2.2-create-a-guardrails-configuration-for-code-detection", "task-2.3-create-a-control-and-bind-the-configuration", "task-2.4-test-and-verify-the-code-guardrail", "task-2.5-configure-additional-detectors", "task-2.6-test-the-additional-detectors", "task-2.7-configure-pii-masking", "lab-3-see-it-stress-test-it-secure-it-ai-protect-meets-red-teaming", "task-3.0-access-the-solutions-demo-center", "task-3.1-explore-ai-traffic-patterns-and-model-risks", "task-3.2-explore-the-app-inventory-page", "task-3.3-explore-ai-assets", "task-3.4-explore-red-teaming-and-the-probe-catalog", "task-3.5-review-scheduled-test-runs-and-completed-test-runs", "task-3.6-explore-failed-probe-evidence", "additional-knowledge-exporting-prompts-to-aws-s3-bucket"]'>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="app-shell">
+<aside aria-label="Workshop navigation" class="sidebar">
+<div class="brand"><div class="brand-logo"><img alt="Zscaler" src="assets/images/zscaler-logo.png"/></div><div class="brand-kicker">AI Security Workshop</div><p class="brand-title">Zscaler AI Security Workshop - Lab Guide</p></div>
+<div class="sidebar-tools"><div class="search-wrap"><input aria-label="Search navigation" data-nav-search="" placeholder="Search modules…" type="search"/></div></div>
+<nav class="nav-scroll"><div class="nav-group"><a class="nav-page" href="index.html">Workshop Overview</a></div><div class="nav-group"><a class="nav-page" href="lab-0.html">Lab 0</a><div class="nav-tasks"><a class="nav-task" data-task-id="task-0.1-verify-lab-access" href="lab-0.html#task-0.1-verify-lab-access">Task 0.1: Verify lab access</a><a class="nav-task" data-task-id="task-0.2-use-the-lab-clipboard" href="lab-0.html#task-0.2-use-the-lab-clipboard">Task 0.2: Use the lab clipboard</a></div></div><div class="nav-group"><a class="nav-page" href="lab-1.html">Lab 1</a><div class="nav-tasks"><a class="nav-task" data-task-id="task-1.1-enter-a-direct-prompt" href="lab-1.html#task-1.1-enter-a-direct-prompt">Task 1.1: Enter a direct prompt</a><a class="nav-task" data-task-id="task-1.2-submit-a-role-play-prompt" href="lab-1.html#task-1.2-submit-a-role-play-prompt">Task 1.2: Submit a role-play prompt</a><a class="nav-task" data-task-id="task-1.3-share-sensitive-data-with-a-public-ai-tool" href="lab-1.html#task-1.3-share-sensitive-data-with-a-public-ai-tool">Task 1.3: Share sensitive data with a public AI tool</a><a class="nav-task" data-task-id="task-1.4-prompt-the-ai-to-identify-attack-type-and-risk-level" href="lab-1.html#task-1.4-prompt-the-ai-to-identify-attack-type-and-risk-level">Task 1.4: Prompt the AI to identify attack type and risk level</a></div></div><div class="nav-group"><a class="nav-page" href="lab-2.html">Lab 2</a><div class="nav-tasks"><a class="nav-task" data-task-id="task-2.1-access-the-zscaler-ai-guardrails-zguard-console" href="lab-2.html#task-2.1-access-the-zscaler-ai-guardrails-zguard-console">Task 2.1: Access the Zscaler AI Guardrails (Zguard) Console</a><a class="nav-task" data-task-id="task-2.2-create-a-guardrails-configuration-for-code-detection" href="lab-2.html#task-2.2-create-a-guardrails-configuration-for-code-detection">Task 2.2: Create a Guardrails Configuration for Code Detection</a><a class="nav-task" data-task-id="task-2.3-create-a-control-and-bind-the-configuration" href="lab-2.html#task-2.3-create-a-control-and-bind-the-configuration">Task 2.3: Create a Control and Bind the Configuration</a><a class="nav-task" data-task-id="task-2.4-test-and-verify-the-code-guardrail" href="lab-2.html#task-2.4-test-and-verify-the-code-guardrail">Task 2.4: Test and Verify the Code Guardrail</a><a class="nav-task" data-task-id="task-2.5-configure-additional-detectors" href="lab-2.html#task-2.5-configure-additional-detectors">Task 2.5: Configure Additional Detectors</a><a class="nav-task" data-task-id="task-2.6-test-the-additional-detectors" href="lab-2.html#task-2.6-test-the-additional-detectors">Task 2.6: Test the Additional Detectors</a><a class="nav-task" data-task-id="task-2.7-configure-pii-masking" href="lab-2.html#task-2.7-configure-pii-masking">Task 2.7: Configure PII Masking</a></div></div><div class="nav-group"><a class="nav-page active" href="lab-3.html">Lab 3</a><div class="nav-tasks"><a class="nav-task" data-task-id="task-3.0-access-the-solutions-demo-center" href="#task-3.0-access-the-solutions-demo-center">Task 3.0: Access the Solutions Demo Center (SDC) – Read-Only account</a><a class="nav-task" data-task-id="task-3.1-explore-ai-traffic-patterns-and-model-risks" href="#task-3.1-explore-ai-traffic-patterns-and-model-risks">Task 3.1: Explore AI traffic patterns and model risks</a><a class="nav-task" data-task-id="task-3.2-explore-the-app-inventory-page" href="#task-3.2-explore-the-app-inventory-page">Task 3.2: Explore the App Inventory page</a><a class="nav-task" data-task-id="task-3.3-explore-ai-assets" href="#task-3.3-explore-ai-assets">Task 3.3: Explore AI Assets</a><a class="nav-task" data-task-id="task-3.4-explore-red-teaming-and-the-probe-catalog" href="#task-3.4-explore-red-teaming-and-the-probe-catalog">Task 3.4: Explore Red Teaming and the probe catalog</a><a class="nav-task" data-task-id="task-3.5-review-scheduled-test-runs-and-completed-test-runs" href="#task-3.5-review-scheduled-test-runs-and-completed-test-runs">Task 3.5: Review Scheduled Test Runs and Completed Test Runs</a><a class="nav-task" data-task-id="task-3.6-explore-failed-probe-evidence" href="#task-3.6-explore-failed-probe-evidence">Task 3.6: Explore Failed Probe Evidence</a></div></div><div class="nav-group"><a class="nav-page" href="resources.html">Resources</a></div><div class="nav-group"><a class="nav-page" href="thanks.html">Thanks</a></div></nav>
+<div class="sidebar-footer"><div class="sidebar-progress-label"><span>Tasks completed</span><span data-completion-text="">0%</span></div><div class="mini-progress"><span data-completion-fill=""></span></div></div>
+</aside>
+<header class="topbar">
+<button aria-label="Open navigation" class="mobile-menu" data-mobile-menu="">☰</button>
+<div class="position-wrap"><div class="position-row"><span class="position-title" data-position-title="">Lab 3</span><span data-position-text="">0% through guide</span></div><div class="position-progress"><span data-position-fill=""></span></div></div>
+<button aria-label="Switch theme" class="icon-button" data-theme-toggle="" title="Theme">☾</button>
+</header>
+<main class="main" id="main-content"><aside aria-label="Workshop tools" class="right-rail">
+<section aria-label="Glossary and definitions" class="utility-card glossary-card">
+<button class="glossary-launch" data-glossary-open="" type="button">
+<span aria-hidden="true" class="utility-icon glossary-icon">
+<svg role="img" viewbox="0 0 24 24"><path d="M4 3.5A2.5 2.5 0 0 1 6.5 1H20v18H6.75A2.75 2.75 0 0 0 4 21.75V3.5Zm2.5-.5A.5.5 0 0 0 6 3.5v14.04c.24-.03.49-.04.75-.04H18V3H6.5ZM6.75 19.5A.75.75 0 0 0 6 20.25v.5c0 .14.11.25.25.25H20v-1.5H6.75ZM8 6h8v1.5H8V6Zm0 3h8v1.5H8V9Zm0 3h5.5v1.5H8V12Z"></path></svg>
+</span>
+<span class="glossary-launch-copy"><strong>Glossary</strong><small>Open important terms and definitions</small></span>
+<span aria-hidden="true" class="glossary-arrow">›</span>
+</button>
+</section><section aria-labelledby="credential-store-title" class="utility-card credential-card">
+<div class="utility-head">
+<span aria-hidden="true" class="utility-icon">
+<svg role="img" viewbox="0 0 24 24"><path d="M14.5 7.5a4.5 4.5 0 1 0-4.16 4.48L13 14.64V17h2.36v2.36h2.36V22H22v-4.28l-7.02-7.02A4.47 4.47 0 0 0 14.5 7.5Zm-9 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0Z"></path></svg>
+</span>
+<div><h2 id="credential-store-title">Credential Store</h2><p>Lab-only values saved in this browser.</p></div>
+</div>
+<div aria-label="Lab credentials" class="credential-table" role="table">
+<label class="credential-row" role="row"><span role="rowheader">Skytap code</span><input aria-label="Skytap code" autocomplete="off" data-credential-key="skytapCode" spellcheck="false" type="text"/></label>
+<label class="credential-row" role="row"><span role="rowheader">Zscaler username</span><input aria-label="Zscaler username" autocomplete="off" data-credential-key="zscalerUsername" spellcheck="false" type="text"/></label>
+<label class="credential-row" role="row"><span role="rowheader">Zscaler password</span><input aria-label="Zscaler password" autocomplete="off" data-credential-key="zscalerPassword" spellcheck="false" type="password"/></label>
+<label class="credential-row" role="row"><span role="rowheader">SDC username</span><input aria-label="SDC username" autocomplete="off" data-credential-key="sdcUsername" spellcheck="false" type="text"/></label>
+<label class="credential-row" role="row"><span role="rowheader">SDC password</span><input aria-label="SDC password" autocomplete="off" data-credential-key="sdcPassword" spellcheck="false" type="password"/></label>
+</div>
+<div class="credential-actions"><button data-credentials-clear="" type="button">Clear saved values</button><span aria-live="polite" data-credential-status=""></span></div>
+<p class="credential-note">Stored locally in your browser profile and never sent by this guide. Use only temporary workshop credentials. Launch with the included local server so saved values follow you across modules.</p>
+</section></aside><div class="content">
+<header class="page-header" id="lab-3-see-it-stress-test-it-secure-it-ai-protect-meets-red-teaming">
+<span class="page-kicker">Lab 3</span>
+<h1>Lab 3: See It, Stress-Test It, Secure It — AI Protect Meets Red Teaming</h1>
+<span class="confidential">Zscaler confidential information</span>
+</header>
+<div><section class="lab-section" data-title="Lab 3: See It, Stress-Test It, Secure It — AI Protect Meets Red Teaming" id="lab-3-intro"><div class="callout info">
+<p><strong>Scenario:</strong></p> Your first job is to understand the scope of AI
+usage across your organization. Leadership assumes this is mostly a
+browser problem, but the AI Security Platform quickly shows a broader
+reality: public AI activity spans browser-based Gen AI apps and
+endpoint-based Desktop AI apps.
+<p>Explore <strong>AI Protect</strong> to build a baseline of where AI
+is being used before deciding how risk should be managed.</p>
+<p><strong>Objectives:</strong> By the end of this lab, you will be able
+to<strong>:</strong></p>
+</div><ul>
+
+
+
+
+<li><p>Access the Solutions Demo Center (SDC) environment.</p></li>
+<li><p>Navigate to the AI Security and AI Guard portals.</p></li>
+<li><p>Review the Red Teaming coverage, Health Score, and lifecycle status for tested AI assets.</p></li>
+<li><p>Open a completed Red Teaming Test Run and review failed probe results and remediation guidance.</p></li>
+</ul><div class="callout info">
+<p><strong>Approximate Time: 20 minutes</strong></p>
+</div><div class="section-nav"><span></span><a href="#task-3.0-access-the-solutions-demo-center">Next section →</a></div></section><section class="lab-section" data-title="Task 3.0: Access the Solutions Demo Center (SDC) – Read-Only account" id="task-3.0-access-the-solutions-demo-center"><h2><div class="task-heading"><input aria-label="Mark Task 3.0: Access the Solutions Demo Center (SDC) – Read-Only account complete" class="task-check" data-task-id="task-3.0-access-the-solutions-demo-center" type="checkbox"/><span class="task-heading-text">Task 3.0: Access the Solutions Demo Center (SDC) – Read-Only account</span></div></h2><p>In this task, you access the Solutions Demo Center (SDC) and navigate
+to AI Protect and AI Guard portals.</p><ol type="1">
+<li><p>Access the SDC:</p>
+<ol type="a">
+<li><p>In a browser, go to <a href="https://sdc.zslogin.net/" rel="noopener noreferrer" target="_blank">https://sdc.zslogin.net/</a></p></li>
+</ol></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.0: Access the Solutions Demo Center (SDC) – Read-Only account" decoding="async" loading="lazy" src="assets/images/image25.png"/><figcaption>Figure 1: Task 3.0: Access the Solutions Demo Center (SDC) – Read-Only account</figcaption></figure><div class="callout note"><em><strong>Note:</strong> Your ZIA Admin Login ID and Password are
+provided in an email.</em></div><ol start="2" type="1">
+<li><p>Log in using the SDC credentials provided in your lab access
+email:</p></li>
+</ol><ol type="a">
+<li><p>Login ID:
+<strong>&lt;string&gt;</strong>-ADMIN@thezerotrustexchange.com</p></li>
+<li><p>Password: <strong>&lt;password&gt;</strong></p></li>
+<li><p>You may require to setup MFA to login. Select
+<strong>TOTP</strong> and scan the QR Code with mobile apps like Google
+or Microsoft Authenticator.</p></li>
+</ol><ol start="3" type="1">
+<li><p>Select the <strong>AI Security</strong> icon on the
+<strong>Zidentity</strong> dashboard to access <strong>AI
+Protect.</strong></p></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.0: Access the Solutions Demo Center (SDC) – Read-Only account" decoding="async" loading="lazy" src="assets/images/image26.png"/><figcaption>Figure 2: Task 3.0: Access the Solutions Demo Center (SDC) – Read-Only account</figcaption></figure><div class="section-nav"><a href="#lab-3-intro">← Previous section</a><a href="#task-3.1-explore-ai-traffic-patterns-and-model-risks">Next section →</a></div></section><section class="lab-section" data-title="Task 3.1: Explore AI traffic patterns and model risks" id="task-3.1-explore-ai-traffic-patterns-and-model-risks"><h2><div class="task-heading"><input aria-label="Mark Task 3.1: Explore AI traffic patterns and model risks complete" class="task-check" data-task-id="task-3.1-explore-ai-traffic-patterns-and-model-risks" type="checkbox"/><span class="task-heading-text">Task 3.1: Explore AI traffic patterns and model risks</span></div></h2><div class="callout info">
+<p>In this task, you get your first view of <strong>AI Protect</strong>.
+You start at the dashboard to see how Public AI usage is summarized and
+how AI applications are grouped into Gen AI and Desktop AI, so you can
+understand the overall shape of AI activity before you dive into
+details.</p>
+</div><ol type="1">
+<li><p>Navigate to the <strong>AI Dashboard</strong>.</p>
+<ol type="a">
+<li><p>Select the <strong>AI Security</strong> Icon on the
+<strong>Zidentity</strong> dashboard</p></li>
+</ol></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.1: Explore AI traffic patterns and model risks" decoding="async" loading="lazy" src="assets/images/image27.png"/><figcaption>Figure 3: Task 3.1: Explore AI traffic patterns and model risks</figcaption></figure><ol start="2" type="1">
+<li><p>Review the top three panels on the <strong>AI</strong>
+Dashboard:</p>
+<ol type="a">
+<li><p><strong>Public AI Traffic Overview</strong></p></li>
+<li><p><strong>AI Application by Categories</strong></p></li>
+<li><p><strong>AI Assets by Categories</strong></p></li>
+</ol></li>
+</ol><div class="callout note"><em><strong>Note:</strong> Each panel includes a
+<strong>Details</strong> link that opens a more detailed view of the
+underlying data.</em></div><ol start="3" type="1">
+<li><p>Explore the details of each panel to observe which AI tools are
+in use and how AI assets are organized.</p>
+<ol type="a">
+<li><p>Navigate to the <strong>Public AI Traffic Overview</strong> panel
+<strong>Details</strong> to explore the underlying data and see how AI
+traffic is summarized.</p></li>
+<li><p>Select the <strong>Dashboard</strong> from the left-side
+navigation to return to the <strong>AI Security
+Dashboard</strong>.</p></li>
+<li><p>Select <strong>Details</strong> for <strong>AI Application by
+Categories</strong> and <strong>AI Assets by Categories</strong> panels
+to gain further insight into the contextual data available for each
+category.</p></li>
+</ol></li>
+<li><p>Explore the Public AI Overview.</p>
+<ol type="a">
+<li><p>Go to the <strong>Public AI &gt; Overview</strong> from the
+left-side navigation panel.</p></li>
+<li><p>Set the <strong>Date Range</strong> <strong>filter</strong> in
+the top‑right corner to the <strong>Last 15 days</strong>.</p></li>
+</ol></li>
+<li><p>Review high-level AI usage panels that display how widely AI is
+being used and where sensitive activity is concentrated:</p>
+<ol type="a">
+<li><p><strong>Total Volume</strong> of AI traffic.</p></li>
+<li><p><strong>Total Users</strong> accessing AI tools.</p></li>
+<li><p><strong>Files Uploaded</strong> to AI applications.</p></li>
+</ol></li>
+<li><p>Examine AI application inventory tiles.</p>
+<ol type="a">
+<li><p>Select <strong>See All</strong> in the <strong>Endpoint AI
+Apps</strong> panel to view the full list.</p></li>
+</ol></li>
+</ol><div class="callout note"><em><strong>Note:</strong> Notice the number of versions of Microsoft
+Copilot M365 detected in the inventory, so you understand how many
+different builds of a single AI tool may actually be in use. When you
+scale that across the entire organization, the numbers are
+staggering.</em></div><ol start="7" type="1">
+<li><p>Analyze App Usage Trends to see which Gen AI apps are most
+active.</p>
+<ol type="a">
+<li><p>Change the filter for the <strong>App Usage Trends</strong> panel
+on the <strong>Public AI &gt; Overview</strong> dashboard to see which
+Gen AI apps generate the most traffic by:</p>
+<ol type="i">
+<li><p>Volume</p></li>
+<li><p>Transactions</p></li>
+<li><p>Users</p></li>
+</ol></li>
+</ol></li>
+</ol><div class="callout verify"><em><strong>Verify:</strong> You have opened the <strong>AI
+Security</strong> dashboard, identified the three major panels that
+summarize Public AI usage, drilled into their details, and explored the
+Public AI overview. You now have a high-level picture of AI traffic
+volume, user activity, sensitive data events, and key applications that
+will guide deeper investigation in later tasks.</em></div><div class="section-nav"><a href="#task-3.0-access-the-solutions-demo-center">← Previous section</a><a href="#task-3.2-explore-the-app-inventory-page">Next section →</a></div></section><section class="lab-section" data-title="Task 3.2: Explore the App Inventory page" id="task-3.2-explore-the-app-inventory-page"><h2><div class="task-heading"><input aria-label="Mark Task 3.2: Explore the App Inventory page complete" class="task-check" data-task-id="task-3.2-explore-the-app-inventory-page" type="checkbox"/><span class="task-heading-text">Task 3.2: Explore the App Inventory page</span></div></h2><div class="callout info">
+<p>In this task, you move from the high-level overview to a granular
+view. Here, you shift to the endpoint perspective to see which AI
+applications are detected through endpoint telemetry, not just through
+browser traffic. This helps you understand how AI usage extends beyond
+chatbot usage.</p>
+</div><ol type="1">
+<li><p>Explore the <strong>Top Desktop AI Apps</strong> panel.</p>
+<ol type="a">
+<li><p>Go to <strong>Public AI &gt; App Inventory</strong> from the
+left-side navigation panel.</p></li>
+<li><p>Select the <strong>Endpoint AI</strong> tab.</p></li>
+<li><p>Review the list of AI applications identified through endpoint
+telemetry, then select an application to inspect its detected versions
+and associated inventory metadata.</p></li>
+</ol></li>
+<li><p>Explore the Top Gen AI Apps.</p>
+<ol type="a">
+<li><p>Select the <strong>Gen AI</strong> tab.</p></li>
+<li><p>Select a <strong>Gen AI</strong> application to inspect its
+<strong>General Information</strong>, <strong>Hosting
+Information</strong>, <strong>Security Information</strong>, and
+<strong>Risk Index</strong> metadata for that specific
+application.</p></li>
+</ol></li>
+</ol><div class="callout verify"><em><strong>Verify:</strong> You have navigated to <strong>Public AI
+&gt; App Inventory</strong>, reviewed <strong>Endpoint AI</strong> and
+<strong>Gen AI applications</strong>, and inspected inventory details.
+You now see how endpoint-based Desktop AI apps extend visibility beyond
+browser traffic and how application metadata supports risk
+assessment.</em></div><div class="section-nav"><a href="#task-3.1-explore-ai-traffic-patterns-and-model-risks">← Previous section</a><a href="#task-3.3-explore-ai-assets">Next section →</a></div></section><section class="lab-section" data-title="Task 3.3: Explore AI Assets" id="task-3.3-explore-ai-assets"><h2><div class="task-heading"><input aria-label="Mark Task 3.3: Explore AI Assets complete" class="task-check" data-task-id="task-3.3-explore-ai-assets" type="checkbox"/><span class="task-heading-text">Task 3.3: Explore AI Assets</span></div></h2><div class="callout info">
+<p>In this task, you move from applications to AI assets. You explore
+how AI models and workloads are organized and assessed for risk, so you
+can connect high-level usage back to the specific AI components that
+process data.</p>
+</div><ol type="1">
+<li><p>Explore AI Resources: AI Models.</p>
+<ol type="a">
+<li><p>Go to <strong>AI Infrastructure &gt; AI Assets</strong> from the
+left-side navigation panel.</p></li>
+<li><p>Confirm that the <strong>Models</strong> tab is
+selected.</p></li>
+<li><p>In the <strong>Models By Risk</strong> panel, review how models
+are grouped into risk buckets.</p>
+<ol type="i">
+<li><p>Critical</p></li>
+<li><p>High</p></li>
+<li><p>Medium</p></li>
+<li><p>Low</p></li>
+<li><p>Unknown</p></li>
+</ol></li>
+</ol></li>
+</ol><div class="callout note"><em><strong>Note:</strong> Risk here reflects how likely a model is
+to be exploited by adversarial attacks (such as prompt injection,
+jailbreaks, and data extraction). It is distinct from the Risk Level
+used on other assets, where the score measures the severity of open
+issues rather than attack resistance.</em></div><ol start="4" type="a">
+<li><p>In the <strong>Models By Subtype</strong> box, review how models
+are classified by subtype. For example:</p></li>
+</ol><ol type="i">
+<li><p><strong>Foundation</strong>: indicates a pretrained base model
+shipped by a provider such as GPT‑4.0, Claude, or Llama.</p>
+<ol type="a">
+<li><p>In the models table, review core identification details about the
+model, such as <strong>type</strong>, <strong>environment</strong>, and
+<strong>source</strong>.</p></li>
+</ol></li>
+</ol><div class="callout note"><em><strong>Note:</strong> As you review subtypes, connect them back
+to the kinds of AI applications you saw earlier—this helps you see which
+foundational models may sit behind high-traffic apps.</em></div><ol start="2" type="1">
+<li><p>In the <strong>Search</strong> box, type: <em>gpt-5-pro</em> and
+then press Enter</p>
+<ol type="a">
+<li><p>Select <strong>gpt-5-pro</strong> to open its detail view and
+review the <strong>General Information</strong>.</p></li>
+<li><p>Explore the <strong>Graph View</strong></p></li>
+<li><p>Select the icon for <strong>Access</strong>, <strong>AI
+Model</strong> or <strong>Workloads</strong> to expand a card to the
+right that provides more detailed information about the asset.</p></li>
+<li><p>As you explore the graph, trace how the model connects to access
+paths and workloads.</p></li>
+</ol></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.3: Explore AI Assets" decoding="async" loading="lazy" src="assets/images/image28.jpg"/><figcaption>Figure 4: Task 3.3: Explore AI Assets</figcaption></figure><ol start="3" type="1">
+<li><p>Explore <strong>AI Resources</strong> &gt; Workloads tab</p></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.3: Explore AI Assets" decoding="async" loading="lazy" src="assets/images/image29.jpg"/><figcaption>Figure 5: Task 3.3: Explore AI Assets</figcaption></figure><ol type="a">
+<li><p>Narrow the <strong>Workloads</strong> table results with the
+<strong>Risk Level</strong> filter by selecting: Critical</p></li>
+<li><p>Select the <strong>acme-corp-dev-mcp-server-01</strong>
+workload.</p></li>
+<li><p>In the <strong>General information</strong> panel, note the
+<strong>sensitive data</strong> exposed for this workload.</p></li>
+<li><p>Observe the <strong>Graph View</strong> for the
+workload.</p></li>
+<li><p>In the <strong>Graph View</strong> select the <strong>Sensitive
+Data</strong> node. The details pane will appear on the right.</p></li>
+<li><p>Select <strong>Data Security</strong> tab.</p></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.3: Explore AI Assets" decoding="async" loading="lazy" src="assets/images/image30.png"/><figcaption>Figure 6: Task 3.3: Explore AI Assets</figcaption></figure><ol start="7" type="a">
+<li><p>Observe the matched <strong>files</strong>, <strong>number of
+triggers</strong>, Data Loss Prevention (<strong>DLP) engines</strong>,
+<strong>DLP dictionaries</strong>, <strong>document categories</strong>,
+<strong>document</strong> <strong>types</strong>, and the <strong>file
+table</strong>.</p></li>
+</ol><div class="callout note"><em><strong>Note:</strong> You can use this information to discover
+workloads and connect them to the kinds of sensitive data they handle as
+well as the policies that are violated. In a production environment this
+is important when you evaluate controls and enforcement.</em></div><figure><img alt="Workshop screenshot for Task 3.3: Explore AI Assets" decoding="async" loading="lazy" src="assets/images/image31.png"/><figcaption>Figure 7: Task 3.3: Explore AI Assets</figcaption></figure><div class="section-nav"><a href="#task-3.2-explore-the-app-inventory-page">← Previous section</a><a href="#task-3.4-explore-red-teaming-and-the-probe-catalog">Next section →</a></div></section><section class="lab-section" data-title="Task 3.4: Explore Red Teaming and the probe catalog" id="task-3.4-explore-red-teaming-and-the-probe-catalog"><h2><div class="task-heading"><input aria-label="Mark Task 3.4: Explore Red Teaming and the probe catalog complete" class="task-check" data-task-id="task-3.4-explore-red-teaming-and-the-probe-catalog" type="checkbox"/><span class="task-heading-text">Task 3.4: Explore Red Teaming and the probe catalog</span></div></h2><div class="callout info">
+<p><strong>Scenario:</strong> After you map AI usage in AI Protect and
+review how AI Guard evaluates prompts and responses, you need to know
+whether the organization’s AI applications can withstand adversarial
+behavior. Security leadership isn’t asking you to run a new test today.
+Instead, review Red Teaming results to determine what has already been
+tested, where risk remains, and which remediation guidance, if any, the
+application owner should review before treating an application as
+managed.</p>
+<p>Review which AI assets have already been tested to see how Red
+Teaming coverage is distributed across your environment.</p>
+</div><ol type="1">
+<li><p>In the left navigation, go to <strong>AI Infrastructure &gt; AI
+Red Teaming &gt; Overview</strong></p></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.4: Explore Red Teaming and the probe catalog" decoding="async" loading="lazy" src="assets/images/image32.jpg"/><figcaption>Figure 8: Task 3.4: Explore Red Teaming and the probe catalog</figcaption></figure><div class="callout info">
+<p>○ <strong>Total number of runs in the last 7 days.</strong></p>
+<p>○ <strong>Tested/Onboarded coverage of AI assets.</strong></p>
+<div class="callout note"><strong>Note:</strong> Together, these metrics tell you how active
+your testing has been and how much of your estate it covers.</div>
+</div><ol start="4" type="1">
+<li><p>Review the <strong>Tested AI Assets by Health Score</strong>
+panel.</p>
+<ol type="a">
+<li><p>This donut chart shows how tested AI assets are distributed by
+<strong>Health Score</strong>.</p></li>
+<li><p>A cluster at the low end shows where to focus first.</p></li>
+</ol></li>
+<li><p>Review the <strong>AI Assets by Availability</strong> panel.</p>
+<ol type="a">
+<li><p>See how many tested assets are internal, customer-facing, or
+both.</p></li>
+<li><p>Customer-facing assets usually carry the most exposure, so weigh
+their results accordingly.</p></li>
+</ol></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.4: Explore Red Teaming and the probe catalog" decoding="async" loading="lazy" src="assets/images/image33.png"/><figcaption>Figure 9: Task 3.4: Explore Red Teaming and the probe catalog</figcaption></figure><div class="callout info">
+<div class="callout note"><strong>Note:</strong> If a tab appears dimmed, it isn’t available in
+the current view.</div>
+</div><figure><img alt="Workshop screenshot for Task 3.4: Explore Red Teaming and the probe catalog" decoding="async" loading="lazy" src="assets/images/image34.jpg"/><figcaption>Figure 10: Task 3.4: Explore Red Teaming and the probe catalog</figcaption></figure><figure><img alt="Workshop screenshot for Task 3.4: Explore Red Teaming and the probe catalog" decoding="async" loading="lazy" src="assets/images/image35.jpg"/><figcaption>Figure 11: Task 3.4: Explore Red Teaming and the probe catalog</figcaption></figure><ol start="6" type="1">
+<li><p>Select a tested asset row, such as <strong>Multi-model Travel
+Demo Target</strong>.</p></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.4: Explore Red Teaming and the probe catalog" decoding="async" loading="lazy" src="assets/images/image36.png"/><figcaption>Figure 12: Task 3.4: Explore Red Teaming and the probe catalog</figcaption></figure><ol start="7" type="1">
+<li><p>In the General Information section, note the Connection Type,
+Environment, Availability, Supported Modes, and Integration Type. These
+are the same asset attributes you first saw earlier in this
+lab.</p></li>
+<li><p>Read the <strong>Lifecycle</strong> status, which moves through
+three stages:</p>
+<ol type="a">
+<li><p><strong>Connected</strong> - the AI application is
+onboarded.</p></li>
+<li><p><strong>Tested</strong> - Red Teaming has run against
+it.</p></li>
+<li><p><strong>Secured</strong> - protective controls are in
+place.</p></li>
+</ol></li>
+<li><p>Review the top sections of the page</p>
+<ol type="a">
+<li><p><strong>General Information</strong></p></li>
+<li><p><strong>Health Score</strong></p></li>
+<li><p><strong>Lifecycle</strong></p></li>
+</ol></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.4: Explore Red Teaming and the probe catalog" decoding="async" loading="lazy" src="assets/images/image37.jpg"/><figcaption>Figure 13: Task 3.4: Explore Red Teaming and the probe catalog</figcaption></figure><div class="callout info">
+<div class="callout note"><strong>Note:</strong> Onboarding alone does not mean secured. An
+asset can remain at Connected or Tested for an extended period, and that
+gap represents the risk you are evaluating.</div>
+</div><ol start="10" type="1">
+<li><p>Review the <strong>Health Score</strong> value.</p></li>
+</ol><ol type="a">
+<li><p>The <strong>Health Score</strong> ranges <strong>0–100</strong>,
+where lower numbers mean higher risk. The score is grouped into four
+risk bands:</p>
+<ol type="I">
+<li><p>CRITICAL: &lt; 30</p>
+<ul>
+<li><p>Severe risk. Immediate action required.</p></li>
+</ul></li>
+<li><p>HIGH: 30–59.9</p></li>
+</ol></li>
+</ol><ul>
+<li><p>Elevated risk. Prioritize mitigation.</p>
+<ol type="I">
+<li><p>MEDIUM: 60–79.9</p></li>
+</ol></li>
+<li><p>Moderate risk. Monitor closely and address issues.</p>
+<ol type="I">
+<li><p>LOW: ≥ 80</p>
+<ul>
+<li><p>Low risk. Routine monitoring and improvements.</p></li>
+</ul></li>
+</ol></li>
+</ul><ol start="11" type="1">
+<li><p>On the <strong>Red Teaming</strong> tab, note the
+<strong>Category Score</strong>.</p></li>
+</ol><ol type="a">
+<li><p>Category Scores group into Security, Safety, Hallucination &amp;
+Trustworthiness, Business Alignment, and Custom.</p></li>
+</ol><div class="callout info">
+<div class="callout note"><strong>Note:</strong> Similar to the <strong>Health Score</strong>,
+each <strong>Category Score</strong> is calculated based on the number
+of failed test cases, their severity, and their expected probability,
+taking into account the risk priority set for each probe within that
+category. Higher scores indicate better performance.</div>
+</div><ol start="12" type="1">
+<li><p>Review the <strong>Category Overview,</strong> under
+<strong>Security</strong> tab</p>
+<ol type="a">
+<li><p>Every <strong>Probe Card</strong> represents a probe from a
+category eg., Data Exfiltration, Context Leakage</p></li>
+</ol></li>
+</ol><div class="callout info">
+<div class="callout note"><strong>Note:</strong> You can access the Probe Run View by selecting
+a Probe Card on the Category Overview page or by selecting a relevant
+row in the Probe Run Table on the Test Run page.</div>
+</div><figure><img alt="Workshop screenshot for Task 3.4: Explore Red Teaming and the probe catalog" decoding="async" loading="lazy" src="assets/images/image37.jpg"/><figcaption>Figure 14: Task 3.4: Explore Red Teaming and the probe catalog</figcaption></figure><div class="callout info">
+<div class="callout verify"><strong>Verify:</strong> You have opened the <strong>AI Red Teaming
+Overview</strong>, reviewed insights and availability for tested AI
+assets, filtered and selected a tested asset, and examined its
+<strong>lifecycle</strong>, <strong>Health Score</strong>,
+<strong>Category</strong> <strong>Scores</strong>, and <strong>Probe
+Cards</strong>, including the <strong>Context Leakage</strong>
+probe.</div>
+</div><div class="section-nav"><a href="#task-3.3-explore-ai-assets">← Previous section</a><a href="#task-3.5-review-scheduled-test-runs-and-completed-test-runs">Next section →</a></div></section><section class="lab-section" data-title="Task 3.5: Review Scheduled Test Runs and Completed Test Runs" id="task-3.5-review-scheduled-test-runs-and-completed-test-runs"><h2><div class="task-heading"><input aria-label="Mark Task 3.5: Review Scheduled Test Runs and Completed Test Runs complete" class="task-check" data-task-id="task-3.5-review-scheduled-test-runs-and-completed-test-runs" type="checkbox"/><span class="task-heading-text">Task 3.5: Review Scheduled Test Runs and Completed Test Runs</span></div></h2><div class="callout info">
+<p>Review a completed test run to explore a single asset at a specific
+point in time.</p>
+</div><ol type="1">
+<li><p>Review the Test Run Scheduler.</p>
+<ol type="a">
+<li><p>Go to <strong>AI Infrastructure &gt; Red Teaming &gt; Test
+Runs</strong></p></li>
+</ol></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.5: Review Scheduled Test Runs and Completed Test Runs" decoding="async" loading="lazy" src="assets/images/image38.png"/><figcaption>Figure 15: Task 3.5: Review Scheduled Test Runs and Completed Test Runs</figcaption></figure><ol start="2" type="a">
+<li><p>Confirm that the <strong>History</strong> tab is
+selected.</p></li>
+<li><p>Look for <strong>AI Test</strong> and then open it.</p></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.5: Review Scheduled Test Runs and Completed Test Runs" decoding="async" loading="lazy" src="assets/images/image39.jpg"/><figcaption>Figure 16: Task 3.5: Review Scheduled Test Runs and Completed Test Runs</figcaption></figure><ol start="2" type="1">
+<li><p>Explore the <strong>Test Run View</strong></p></li>
+</ol><ol type="a">
+<li><p>Every test run can have one of the following statuses:</p>
+<ol type="i">
+<li><p><strong>Pending</strong>: The test run starts when the queue is
+clear.</p></li>
+<li><p><strong>Running</strong>: The test run is in progress.</p></li>
+<li><p><strong>Finished</strong>: All scheduled probes and their attacks
+are completed.</p></li>
+<li><p><strong>Cancelled</strong>: The test run was canceled by the user
+before completion.</p></li>
+<li><p><strong>Error</strong>: The test run was aborted due to target
+misconfiguration.</p></li>
+</ol></li>
+<li><p>Confirm that the <strong>Status</strong> is
+<strong>Finished</strong> before you rely on the reported
+numbers.</p></li>
+</ol><ol start="4" type="1">
+<li><p>Explore <strong>Test Run</strong> results.</p>
+<ol type="a">
+<li><p>The diagram visualizes the flow of data from one
+<strong>category</strong> to the associated <strong>probes</strong> and
+their results.</p></li>
+<li><p>The width of the flow between nodes in the diagram corresponds to
+the number of test cases.</p></li>
+<li><p>The color gradient represents the percentage of
+<strong>failed</strong>, <strong>errored</strong>, and
+<strong>passed</strong> tests.</p></li>
+<li><p>Flows with fewer failed and errored test cases appear
+greener.</p></li>
+<li><p>Flows with more failed test cases appear redder.</p></li>
+</ol></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.5: Review Scheduled Test Runs and Completed Test Runs" decoding="async" loading="lazy" src="assets/images/image40.png"/><figcaption>Figure 17: Task 3.5: Review Scheduled Test Runs and Completed Test Runs</figcaption></figure><ol start="5" type="1">
+<li><p>Explore the <strong>Executed Probes</strong> table.</p>
+<ol type="a">
+<li><p>Switch between the category tabs <strong>Security</strong> and
+<strong>Safety</strong> at the top of the table.</p></li>
+<li><p>Use the <strong>Risk Priority</strong> and
+<strong>Results</strong> filter options to narrow the probes table
+results.</p></li>
+<li><p>The panel contains columns for reviewing probe completion status
+and summary statistics.</p></li>
+</ol></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.5: Review Scheduled Test Runs and Completed Test Runs" decoding="async" loading="lazy" src="assets/images/image41.jpg"/><figcaption>Figure 18: Task 3.5: Review Scheduled Test Runs and Completed Test Runs</figcaption></figure><div class="callout info">
+<div class="callout verify"><strong>Verify:</strong> You have opened a completed test run,
+confirmed its status, interpreted the Sankey diagram for category and
+probe results, and used the Probes table filters to focus on specific
+probe outcomes.</div>
+</div><div class="section-nav"><a href="#task-3.4-explore-red-teaming-and-the-probe-catalog">← Previous section</a><a href="#task-3.6-explore-failed-probe-evidence">Next section →</a></div></section><section class="lab-section" data-title="Task 3.6: Explore Failed Probe Evidence" id="task-3.6-explore-failed-probe-evidence"><h2><div class="task-heading"><input aria-label="Mark Task 3.6: Explore Failed Probe Evidence complete" class="task-check" data-task-id="task-3.6-explore-failed-probe-evidence" type="checkbox"/><span class="task-heading-text">Task 3.6: Explore Failed Probe Evidence</span></div></h2><div class="callout info">
+<p>Review a probe failure to examine evidence for a specific asset and
+understand how the attack was executed and evaluated.</p>
+</div><ol type="1">
+<li><p>Open the <strong>Executed Probes</strong> table.</p></li>
+<li><p>Observe <strong>Probe Cards</strong> for the <strong>Multi-model
+Travel Demo Target asset.</strong></p>
+<ol type="a">
+<li><p>Select the <strong>Context Leakage Probe Card</strong> to open
+the <strong>Probe Run View</strong> for that probe.</p></li>
+</ol></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.6: Explore Failed Probe Evidence" decoding="async" loading="lazy" src="assets/images/image42.jpg"/><figcaption>Figure 19: Task 3.6: Explore Failed Probe Evidence</figcaption></figure><ol start="3" type="1">
+<li><p>Under <strong>Simulated Test Cases</strong>, choose one whose
+result is <strong>Failed</strong>. Review the <strong>Test Case
+Details</strong>.</p></li>
+<li><p>The table contains:</p>
+<ol type="a">
+<li><p><strong>ID:</strong> Unique identifier of the test case.</p></li>
+<li><p><strong>Strategy:</strong> Determines which messages are
+available to the test generator, Detectors, and assets, and the order in
+which each element of the probe is used. Various strategies can be
+deployed against assets.</p></li>
+<li><p><strong>Red Teamer:</strong> Instruction to the LLM on how to
+modify or craft prompts from the provided context.</p></li>
+<li><p><strong>Variation:</strong> Additional algorithmic or stochastic
+(with LLM) changes to the prompt before passing it to the
+asset.</p></li>
+<li><p><strong>Detection Time:</strong> The timestamp when the automated
+decision was made on whether the test case passed or failed.</p></li>
+<li><p><strong>In Report:</strong> Indicates whether the test case is
+flagged for inclusion in the report.</p></li>
+<li><p><strong>Actions Icon:</strong> Indicates the actions taken on the
+test case (accepting risk or changing the result status).</p></li>
+<li><p><strong>Result:</strong> Outcome of the executed test
+case.</p></li>
+</ol></li>
+</ol><ol type="i">
+<li><p><strong>Passed:</strong> The test did not detect the
+vulnerability on your application.</p></li>
+<li><p><strong>Failed:</strong> The attack found the targeted
+vulnerability.</p></li>
+<li><p><strong>Error:</strong> An error occurred while communicating
+with the target.</p></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.6: Explore Failed Probe Evidence" decoding="async" loading="lazy" src="assets/images/image43.jpg"/><figcaption>Figure 20: Task 3.6: Explore Failed Probe Evidence</figcaption></figure><ol start="5" type="1">
+<li><p>Expand the conversation that <strong>failed</strong> (in this
+example, <strong>Conversation 2</strong>) and review the
+results."</p></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.6: Explore Failed Probe Evidence" decoding="async" loading="lazy" src="assets/images/image44.jpg"/><figcaption>Figure 21: Task 3.6: Explore Failed Probe Evidence</figcaption></figure><ol start="6" type="1">
+<li><p>In the upper-right corner, select Actions to reveal the share
+option.</p></li>
+<li><p>In the <strong>Simulated Test Cases panel</strong>, select
+<strong>Export</strong> to view the available export format
+options.</p></li>
+</ol><figure><img alt="Workshop screenshot for Task 3.6: Explore Failed Probe Evidence" decoding="async" loading="lazy" src="assets/images/image45.jpg"/><figcaption>Figure 22: Task 3.6: Explore Failed Probe Evidence</figcaption></figure><div class="section-nav"><a href="#task-3.5-review-scheduled-test-runs-and-completed-test-runs">← Previous section</a></div></section></div>
+</div><div class="page-nav"><a href="lab-2.html"><small>Previous module</small><strong>← Lab 2</strong></a><a class="next" href="resources.html"><small>Next module</small><strong>Resources →</strong></a></div>
+<footer class="site-footer">
+<div>© 2026 Zscaler, Inc. All rights reserved. · ZSCALER CONFIDENTIAL INFORMATION</div>
+<details><summary>Legal notices</summary><p>This workshop guide is based on the supplied source document. Zscaler product names and trademarks remain the property of Zscaler, Inc.; other trademarks belong to their respective owners. Use lab credentials and sample data only in the authorized workshop environment.</p></details>
+</footer></main>
+<div aria-hidden="true" class="overlay"></div>
+<aside aria-hidden="true" aria-label="Glossary" class="glossary-panel">
+<div class="glossary-head"><h2>Glossary</h2><button aria-label="Close glossary" class="icon-button" data-glossary-close="">✕</button></div>
+<div class="glossary-list"><details><summary>Configuration</summary><p>The set of settings where administrators define which detectors are active, their severity levels, and enforcement actions.</p></details><details><summary>Control</summary><p>The rule that attaches a Configuration to a scope (LLM provider/models, users, groups) with an order.</p></details><details><summary>Detectors</summary><p>AI models that inspect prompts/responses for categories (PII, Code, Toxicity, etc.); all enabled detectors execute in parallel.</p></details><details><summary>Threshold</summary><p>The confidence cutoff a detector must meet to trigger its action (higher = stricter).</p></details><details><summary>Severity</summary><p>A logging/triage indicator shown in the dashboard/logs; it does not change enforcement behavior.</p></details><details><summary>Default state</summary><p>Fallback action for multi-label detectors when a specific label isn't set; per-label actions override it.</p></details><details><summary>Anonymization</summary><p>Optional replacement/masking of matched sensitive tokens (supported by certain detectors like Secrets) before forwarding to the LLM.</p></details><details><summary>Action</summary><p>What to do when a detector triggers - Detect (log, allow-through), Allow (explicitly allow; for binary, below-threshold inverts to block), or Block (deny).</p></details></div>
+</aside>
+<div aria-label="Expanded screenshot" aria-modal="true" class="image-modal" role="dialog"><button aria-label="Close image">✕</button><img alt=""/></div>
+<button aria-label="Back to top" class="back-top">↑</button>
+</div>
+<script src="assets/app.js"></script>
+</body></html>

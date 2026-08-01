@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html data-theme="light" lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Zscaler AI Security Workshop - Lab Guide" name="description"/>
+<title>Lab 0 · Zscaler AI Security Workshop - Lab Guide</title>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/styles.css" rel="stylesheet"/>
+</head>
+<body data-all-tasks='["task-0.1-verify-lab-access", "task-0.2-use-the-lab-clipboard", "task-1.1-enter-a-direct-prompt", "task-1.2-submit-a-role-play-prompt", "task-1.3-share-sensitive-data-with-a-public-ai-tool", "task-1.4-prompt-the-ai-to-identify-attack-type-and-risk-level", "task-2.1-access-the-zscaler-ai-guardrails-zguard-console", "task-2.2-create-a-guardrails-configuration-for-code-detection", "task-2.3-create-a-control-and-bind-the-configuration", "task-2.4-test-and-verify-the-code-guardrail", "task-2.5-configure-additional-detectors", "task-2.6-test-the-additional-detectors", "task-2.7-configure-pii-masking", "task-3.0-access-the-solutions-demo-center", "task-3.1-explore-ai-traffic-patterns-and-model-risks", "task-3.2-explore-the-app-inventory-page", "task-3.3-explore-ai-assets", "task-3.4-explore-red-teaming-and-the-probe-catalog", "task-3.5-review-scheduled-test-runs-and-completed-test-runs", "task-3.6-explore-failed-probe-evidence"]' data-page-count="7" data-page-index="1" data-page-start-id="lab-0-connect-to-the-virtual-lab-environment" data-section-order='["about-the-zscalers-ai-security-workshop-hands-on-lab", "lab-0-connect-to-the-virtual-lab-environment", "task-0.1-verify-lab-access", "task-0.2-use-the-lab-clipboard", "lab-1-jailbreaks-overshares-ai-assisted-sleuthing", "task-1.1-enter-a-direct-prompt", "task-1.2-submit-a-role-play-prompt", "task-1.3-share-sensitive-data-with-a-public-ai-tool", "task-1.4-prompt-the-ai-to-identify-attack-type-and-risk-level", "lab-2-configure-and-test-llm-guardrails-with-zscaler-ai-guardrails-zguard", "task-2.1-access-the-zscaler-ai-guardrails-zguard-console", "task-2.2-create-a-guardrails-configuration-for-code-detection", "task-2.3-create-a-control-and-bind-the-configuration", "task-2.4-test-and-verify-the-code-guardrail", "task-2.5-configure-additional-detectors", "task-2.6-test-the-additional-detectors", "task-2.7-configure-pii-masking", "lab-3-see-it-stress-test-it-secure-it-ai-protect-meets-red-teaming", "task-3.0-access-the-solutions-demo-center", "task-3.1-explore-ai-traffic-patterns-and-model-risks", "task-3.2-explore-the-app-inventory-page", "task-3.3-explore-ai-assets", "task-3.4-explore-red-teaming-and-the-probe-catalog", "task-3.5-review-scheduled-test-runs-and-completed-test-runs", "task-3.6-explore-failed-probe-evidence", "additional-knowledge-exporting-prompts-to-aws-s3-bucket"]'>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="app-shell">
+<aside aria-label="Workshop navigation" class="sidebar">
+<div class="brand"><div class="brand-logo"><img alt="Zscaler" src="assets/images/zscaler-logo.png"/></div><div class="brand-kicker">AI Security Workshop</div><p class="brand-title">Zscaler AI Security Workshop - Lab Guide</p></div>
+<div class="sidebar-tools"><div class="search-wrap"><input aria-label="Search navigation" data-nav-search="" placeholder="Search modules…" type="search"/></div></div>
+<nav class="nav-scroll"><div class="nav-group"><a class="nav-page" href="index.html">Workshop Overview</a></div><div class="nav-group"><a class="nav-page active" href="lab-0.html">Lab 0</a><div class="nav-tasks"><a class="nav-task" data-task-id="task-0.1-verify-lab-access" href="#task-0.1-verify-lab-access">Task 0.1: Verify lab access</a><a class="nav-task" data-task-id="task-0.2-use-the-lab-clipboard" href="#task-0.2-use-the-lab-clipboard">Task 0.2: Use the lab clipboard</a></div></div><div class="nav-group"><a class="nav-page" href="lab-1.html">Lab 1</a><div class="nav-tasks"><a class="nav-task" data-task-id="task-1.1-enter-a-direct-prompt" href="lab-1.html#task-1.1-enter-a-direct-prompt">Task 1.1: Enter a direct prompt</a><a class="nav-task" data-task-id="task-1.2-submit-a-role-play-prompt" href="lab-1.html#task-1.2-submit-a-role-play-prompt">Task 1.2: Submit a role-play prompt</a><a class="nav-task" data-task-id="task-1.3-share-sensitive-data-with-a-public-ai-tool" href="lab-1.html#task-1.3-share-sensitive-data-with-a-public-ai-tool">Task 1.3: Share sensitive data with a public AI tool</a><a class="nav-task" data-task-id="task-1.4-prompt-the-ai-to-identify-attack-type-and-risk-level" href="lab-1.html#task-1.4-prompt-the-ai-to-identify-attack-type-and-risk-level">Task 1.4: Prompt the AI to identify attack type and risk level</a></div></div><div class="nav-group"><a class="nav-page" href="lab-2.html">Lab 2</a><div class="nav-tasks"><a class="nav-task" data-task-id="task-2.1-access-the-zscaler-ai-guardrails-zguard-console" href="lab-2.html#task-2.1-access-the-zscaler-ai-guardrails-zguard-console">Task 2.1: Access the Zscaler AI Guardrails (Zguard) Console</a><a class="nav-task" data-task-id="task-2.2-create-a-guardrails-configuration-for-code-detection" href="lab-2.html#task-2.2-create-a-guardrails-configuration-for-code-detection">Task 2.2: Create a Guardrails Configuration for Code Detection</a><a class="nav-task" data-task-id="task-2.3-create-a-control-and-bind-the-configuration" href="lab-2.html#task-2.3-create-a-control-and-bind-the-configuration">Task 2.3: Create a Control and Bind the Configuration</a><a class="nav-task" data-task-id="task-2.4-test-and-verify-the-code-guardrail" href="lab-2.html#task-2.4-test-and-verify-the-code-guardrail">Task 2.4: Test and Verify the Code Guardrail</a><a class="nav-task" data-task-id="task-2.5-configure-additional-detectors" href="lab-2.html#task-2.5-configure-additional-detectors">Task 2.5: Configure Additional Detectors</a><a class="nav-task" data-task-id="task-2.6-test-the-additional-detectors" href="lab-2.html#task-2.6-test-the-additional-detectors">Task 2.6: Test the Additional Detectors</a><a class="nav-task" data-task-id="task-2.7-configure-pii-masking" href="lab-2.html#task-2.7-configure-pii-masking">Task 2.7: Configure PII Masking</a></div></div><div class="nav-group"><a class="nav-page" href="lab-3.html">Lab 3</a><div class="nav-tasks"><a class="nav-task" data-task-id="task-3.0-access-the-solutions-demo-center" href="lab-3.html#task-3.0-access-the-solutions-demo-center">Task 3.0: Access the Solutions Demo Center (SDC) – Read-Only account</a><a class="nav-task" data-task-id="task-3.1-explore-ai-traffic-patterns-and-model-risks" href="lab-3.html#task-3.1-explore-ai-traffic-patterns-and-model-risks">Task 3.1: Explore AI traffic patterns and model risks</a><a class="nav-task" data-task-id="task-3.2-explore-the-app-inventory-page" href="lab-3.html#task-3.2-explore-the-app-inventory-page">Task 3.2: Explore the App Inventory page</a><a class="nav-task" data-task-id="task-3.3-explore-ai-assets" href="lab-3.html#task-3.3-explore-ai-assets">Task 3.3: Explore AI Assets</a><a class="nav-task" data-task-id="task-3.4-explore-red-teaming-and-the-probe-catalog" href="lab-3.html#task-3.4-explore-red-teaming-and-the-probe-catalog">Task 3.4: Explore Red Teaming and the probe catalog</a><a class="nav-task" data-task-id="task-3.5-review-scheduled-test-runs-and-completed-test-runs" href="lab-3.html#task-3.5-review-scheduled-test-runs-and-completed-test-runs">Task 3.5: Review Scheduled Test Runs and Completed Test Runs</a><a class="nav-task" data-task-id="task-3.6-explore-failed-probe-evidence" href="lab-3.html#task-3.6-explore-failed-probe-evidence">Task 3.6: Explore Failed Probe Evidence</a></div></div><div class="nav-group"><a class="nav-page" href="resources.html">Resources</a></div><div class="nav-group"><a class="nav-page" href="thanks.html">Thanks</a></div></nav>
+<div class="sidebar-footer"><div class="sidebar-progress-label"><span>Tasks completed</span><span data-completion-text="">0%</span></div><div class="mini-progress"><span data-completion-fill=""></span></div></div>
+</aside>
+<header class="topbar">
+<button aria-label="Open navigation" class="mobile-menu" data-mobile-menu="">☰</button>
+<div class="position-wrap"><div class="position-row"><span class="position-title" data-position-title="">Lab 0</span><span data-position-text="">0% through guide</span></div><div class="position-progress"><span data-position-fill=""></span></div></div>
+<button aria-label="Switch theme" class="icon-button" data-theme-toggle="" title="Theme">☾</button>
+</header>
+<main class="main" id="main-content"><aside aria-label="Workshop tools" class="right-rail">
+<section aria-label="Glossary and definitions" class="utility-card glossary-card">
+<button class="glossary-launch" data-glossary-open="" type="button">
+<span aria-hidden="true" class="utility-icon glossary-icon">
+<svg role="img" viewbox="0 0 24 24"><path d="M4 3.5A2.5 2.5 0 0 1 6.5 1H20v18H6.75A2.75 2.75 0 0 0 4 21.75V3.5Zm2.5-.5A.5.5 0 0 0 6 3.5v14.04c.24-.03.49-.04.75-.04H18V3H6.5ZM6.75 19.5A.75.75 0 0 0 6 20.25v.5c0 .14.11.25.25.25H20v-1.5H6.75ZM8 6h8v1.5H8V6Zm0 3h8v1.5H8V9Zm0 3h5.5v1.5H8V12Z"></path></svg>
+</span>
+<span class="glossary-launch-copy"><strong>Glossary</strong><small>Open important terms and definitions</small></span>
+<span aria-hidden="true" class="glossary-arrow">›</span>
+</button>
+</section><section aria-labelledby="credential-store-title" class="utility-card credential-card">
+<div class="utility-head">
+<span aria-hidden="true" class="utility-icon">
+<svg role="img" viewbox="0 0 24 24"><path d="M14.5 7.5a4.5 4.5 0 1 0-4.16 4.48L13 14.64V17h2.36v2.36h2.36V22H22v-4.28l-7.02-7.02A4.47 4.47 0 0 0 14.5 7.5Zm-9 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0Z"></path></svg>
+</span>
+<div><h2 id="credential-store-title">Credential Store</h2><p>Lab-only values saved in this browser.</p></div>
+</div>
+<div aria-label="Lab credentials" class="credential-table" role="table">
+<label class="credential-row" role="row"><span role="rowheader">Skytap code</span><input aria-label="Skytap code" autocomplete="off" data-credential-key="skytapCode" spellcheck="false" type="text"/></label>
+<label class="credential-row" role="row"><span role="rowheader">Zscaler username</span><input aria-label="Zscaler username" autocomplete="off" data-credential-key="zscalerUsername" spellcheck="false" type="text"/></label>
+<label class="credential-row" role="row"><span role="rowheader">Zscaler password</span><input aria-label="Zscaler password" autocomplete="off" data-credential-key="zscalerPassword" spellcheck="false" type="password"/></label>
+<label class="credential-row" role="row"><span role="rowheader">SDC username</span><input aria-label="SDC username" autocomplete="off" data-credential-key="sdcUsername" spellcheck="false" type="text"/></label>
+<label class="credential-row" role="row"><span role="rowheader">SDC password</span><input aria-label="SDC password" autocomplete="off" data-credential-key="sdcPassword" spellcheck="false" type="password"/></label>
+</div>
+<div class="credential-actions"><button data-credentials-clear="" type="button">Clear saved values</button><span aria-live="polite" data-credential-status=""></span></div>
+<p class="credential-note">Stored locally in your browser profile and never sent by this guide. Use only temporary workshop credentials. Launch with the included local server so saved values follow you across modules.</p>
+</section></aside><div class="content">
+<header class="page-header" id="lab-0-connect-to-the-virtual-lab-environment">
+<span class="page-kicker">Lab 0</span>
+<h1>Lab 0: Connect to the virtual lab environment</h1>
+<span class="confidential">Zscaler confidential information</span>
+</header>
+<div><section class="lab-section" data-title="Lab 0: Connect to the virtual lab environment" id="lab-0-intro"><div class="callout info">
+<p><strong>Scenario:</strong> You are joining an instructor-led lab
+session. In this lab, you will confirm that you can access the virtual
+lab environment and use the clipboard features needed to complete the
+remaining labs.</p>
+<p><strong>Objectives:</strong> By the end of this lab, you will:</p>
+</div><ul>
+<li><p><strong>Access</strong> the <strong>Skytap</strong>
+<strong>pod</strong> and connect to the lab VM.</p></li>
+<li><p><strong>Use</strong> the lab clipboard to copy/paste between host
+and VM.</p></li>
+</ul><div class="section-nav"><span></span><a href="#task-0.1-verify-lab-access">Next section →</a></div></section><section class="lab-section" data-title="Task 0.1: Verify lab access" id="task-0.1-verify-lab-access"><h2><div class="task-heading"><input aria-label="Mark Task 0.1: Verify lab access complete" class="task-check" data-task-id="task-0.1-verify-lab-access" type="checkbox"/><span class="task-heading-text">Task 0.1: Verify lab access</span></div></h2><ol type="1">
+<li><p>Access the Skytap Portal URL: <a href="https://zscaler.skytap-portal.com/" rel="noopener noreferrer" target="_blank">https://zscaler.skytap-portal.com/</a></p></li>
+</ol><ol type="a">
+<li><p>Paste the Skytap <strong>passcode</strong> to access your lab environment</p></li>
+<li><p>If the machine has not already started as displayed in the image
+below, select the <strong>Play</strong> button. The VM will
+launch.</p></li>
+</ol><figure><img alt="Workshop screenshot for Task 0.1: Verify lab access" decoding="async" loading="lazy" src="assets/images/image2.png"/><figcaption>Figure 1: Task 0.1: Verify lab access</figcaption></figure><div class="section-nav"><a href="#lab-0-intro">← Previous section</a><a href="#task-0.2-use-the-lab-clipboard">Next section →</a></div></section><section class="lab-section" data-title="Task 0.2: Use the lab clipboard" id="task-0.2-use-the-lab-clipboard"><h2><div class="task-heading"><input aria-label="Mark Task 0.2: Use the lab clipboard complete" class="task-check" data-task-id="task-0.2-use-the-lab-clipboard" type="checkbox"/><span class="task-heading-text">Task 0.2: Use the lab clipboard</span></div></h2><div class="callout info">
+<p>During these labs, you will frequently copy commands, URLs, and
+configuration values from the lab guide into the virtual machines.</p>
+</div><ol type="1">
+<li><p>Use the clipboard icon in the lab interface:</p></li>
+</ol><ol type="a">
+<li><p>Select the <strong>clipboard</strong> icon.</p></li>
+<li><p>Paste text into the <strong>Copy/paste:</strong> field.</p></li>
+</ol><div class="callout info">
+<figure><img alt="Workshop screenshot for Task 0.2: Use the lab clipboard" decoding="async" loading="lazy" src="assets/images/image3.jpg"/><figcaption>Figure 2: Task 0.2: Use the lab clipboard</figcaption></figure>
+</div><ol start="3" type="a">
+<li><p>In the VM, use <strong>Ctrl+V</strong> to paste the copied
+text.</p></li>
+</ol><div class="callout info">
+<div class="callout note"><em><strong>Note</strong>: Even if you are on a Mac, the virtual
+machine is running Windows, so use Ctrl+V (not Cmd+V) inside the VM.</em></div>
+<p><em></em></p>
+</div><div class="section-nav"><a href="#task-0.1-verify-lab-access">← Previous section</a></div></section></div>
+</div><div class="page-nav"><a href="index.html"><small>Previous module</small><strong>← Workshop Overview</strong></a><a class="next" href="lab-1.html"><small>Next module</small><strong>Lab 1 →</strong></a></div>
+<footer class="site-footer">
+<div>© 2026 Zscaler, Inc. All rights reserved. · ZSCALER CONFIDENTIAL INFORMATION</div>
+<details><summary>Legal notices</summary><p>This workshop guide is based on the supplied source document. Zscaler product names and trademarks remain the property of Zscaler, Inc.; other trademarks belong to their respective owners. Use lab credentials and sample data only in the authorized workshop environment.</p></details>
+</footer></main>
+<div aria-hidden="true" class="overlay"></div>
+<aside aria-hidden="true" aria-label="Glossary" class="glossary-panel">
+<div class="glossary-head"><h2>Glossary</h2><button aria-label="Close glossary" class="icon-button" data-glossary-close="">✕</button></div>
+<div class="glossary-list"><details><summary>Configuration</summary><p>The set of settings where administrators define which detectors are active, their severity levels, and enforcement actions.</p></details><details><summary>Control</summary><p>The rule that attaches a Configuration to a scope (LLM provider/models, users, groups) with an order.</p></details><details><summary>Detectors</summary><p>AI models that inspect prompts/responses for categories (PII, Code, Toxicity, etc.); all enabled detectors execute in parallel.</p></details><details><summary>Threshold</summary><p>The confidence cutoff a detector must meet to trigger its action (higher = stricter).</p></details><details><summary>Severity</summary><p>A logging/triage indicator shown in the dashboard/logs; it does not change enforcement behavior.</p></details><details><summary>Default state</summary><p>Fallback action for multi-label detectors when a specific label isn't set; per-label actions override it.</p></details><details><summary>Anonymization</summary><p>Optional replacement/masking of matched sensitive tokens (supported by certain detectors like Secrets) before forwarding to the LLM.</p></details><details><summary>Action</summary><p>What to do when a detector triggers - Detect (log, allow-through), Allow (explicitly allow; for binary, below-threshold inverts to block), or Block (deny).</p></details></div>
+</aside>
+<div aria-label="Expanded screenshot" aria-modal="true" class="image-modal" role="dialog"><button aria-label="Close image">✕</button><img alt=""/></div>
+<button aria-label="Back to top" class="back-top">↑</button>
+</div>
+<script src="assets/app.js"></script>
+</body></html>

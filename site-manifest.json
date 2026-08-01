@@ -1,0 +1,28 @@
+{
+  "source_docx": "Zscaler AI Security Workshop Lab Guide_edited.docx",
+  "style_guide": "Corporate-PPT-Template-2026-Apr-V2.pptx",
+  "pages": [
+    "index.html",
+    "lab-0.html",
+    "lab-1.html",
+    "lab-2.html",
+    "lab-3.html",
+    "resources.html",
+    "thanks.html"
+  ],
+  "tasks": 20,
+  "glossary_terms": 8,
+  "images": 47,
+  "brand_colors": [
+    "#256CF7",
+    "#001744",
+    "#FFFFFF",
+    "#E5F1FA",
+    "#12D4FF",
+    "#6BFFB3",
+    "#ED1951",
+    "#FFE641"
+  ],
+  "title": "Zscaler AI Security Workshop - Lab Guide",
+  "version": "v4"
+}
