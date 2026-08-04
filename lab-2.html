@@ -108,8 +108,8 @@ select <strong>Configurations</strong>.</p></li>
 <li><p>Select <strong>Add More</strong>.</p></li>
 </ol><figure><img alt="Workshop screenshot for Task 2.2: Create a Guardrails Configuration for Code Detection" decoding="async" loading="lazy" src="assets/images/image11.png"/><figcaption>Figure 5: Task 2.2: Create a Guardrails Configuration for Code Detection</figcaption></figure><ol start="3" type="1">
 <li><p>In <strong>Basic Information</strong>, enter the policy name in
-the format <strong style="font-size: 1.2em; color: red;">Guardrails - XY</strong>, where <strong style="font-size: 1.2em; color: red;">XY</strong>
-is the <strong style="font-size: 1.2em; color: red;">Student ID</strong> assigned to you, then select <strong>Continue to
+the format <span style="border: 2px solid red; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 1.1em; color: red;">Guardrails - XY</span> , where <strong style="font-size: 1.1em; color: red;">XY</strong>
+is the <strong style="font-size: 1.1em; color: red;">Participant ID</strong> assigned to you, then select <strong>Continue to
 Detectors</strong>.</p></li>
 </ol><figure><img alt="Workshop screenshot for Task 2.2: Create a Guardrails Configuration for Code Detection" decoding="async" loading="lazy" src="assets/images/image12.png"/><figcaption>Figure 6: Task 2.2: Create a Guardrails Configuration for Code Detection</figcaption></figure><ol start="4" type="1">
 <li><p>Under <strong>Prompt Detectors</strong>, select
@@ -142,12 +142,13 @@ provider/models, users, groups) with an order.</p></th>
 <li><p>Select <strong>Add More</strong>.</p></li>
 </ol><figure><img alt="Workshop screenshot for Task 2.3: Create a Control and Bind the Configuration" decoding="async" loading="lazy" src="assets/images/image16.png"/><figcaption>Figure 10: Task 2.3: Create a Control and Bind the Configuration</figcaption></figure><ol start="3" type="1">
 <li><p>Configure the control as per the screenshot below. Update the
-name to include your <strong>XY</strong> student ID, then submit the
+name to include your <strong>XY</strong> Participant ID, then submit the
 policy.</p></li>
-</ol><figure><img alt="Workshop screenshot for Task 2.3: Create a Control and Bind the Configuration" decoding="async" loading="lazy" src="assets/images/image17.png"/><figcaption>Figure 11: Task 2.3: Create a Control and Bind the Configuration</figcaption></figure><div style="background-color: #fff8e1; border-left: 4px solid #f0a500; padding: 12px 16px; margin: 16px 0; border-radius: 4px;">
-  <strong style="color: #f0a500;">📌 Note:</strong>
-  <span> <strong>Ensure to select the user account assigned to you in the lab information email.</strong></span>
-</div><figure><img alt="Workshop screenshot for Task 2.3: Create a Control and Bind the Configuration" decoding="async" loading="lazy" src="assets/images/image18.png"/><figcaption>Figure 12: Task 2.3: Create a Control and Bind the Configuration</figcaption></figure><div class="section-nav"><a href="#task-2.2-create-a-guardrails-configuration-for-code-detection">← Previous section</a><a href="#task-2.4-test-and-verify-the-code-guardrail">Next section →</a></div></section><section class="lab-section" data-title="Task 2.4: Test and Verify the Code Guardrail" id="task-2.4-test-and-verify-the-code-guardrail"><h2><div class="task-heading"><input aria-label="Mark Task 2.4: Test and Verify the Code Guardrail complete" class="task-check" data-task-id="task-2.4-test-and-verify-the-code-guardrail" type="checkbox"/><span class="task-heading-text">Task 2.4: Test and Verify the Code Guardrail</span></div></h2><p>In this task, you trigger the code detector and confirm enforcement
+</ol><figure><img alt="Workshop screenshot for Task 2.3: Create a Control and Bind the Configuration" decoding="async" loading="lazy" src="assets/images/image17.png"/><figcaption>Figure 11: Task 2.3: Create a Control and Bind the Configuration</figcaption></figure><div class="note-box">
+  <strong>📌 Note:</strong>
+  <span> Ensure to select the user account assigned to you in the lab information email.</span>
+</div>
+<figure><img alt="Workshop screenshot for Task 2.3: Create a Control and Bind the Configuration" decoding="async" loading="lazy" src="assets/images/image18.png"/><figcaption>Figure 12: Task 2.3: Create a Control and Bind the Configuration</figcaption></figure><div class="section-nav"><a href="#task-2.2-create-a-guardrails-configuration-for-code-detection">← Previous section</a><a href="#task-2.4-test-and-verify-the-code-guardrail">Next section →</a></div></section><section class="lab-section" data-title="Task 2.4: Test and Verify the Code Guardrail" id="task-2.4-test-and-verify-the-code-guardrail"><h2><div class="task-heading"><input aria-label="Mark Task 2.4: Test and Verify the Code Guardrail complete" class="task-check" data-task-id="task-2.4-test-and-verify-the-code-guardrail" type="checkbox"/><span class="task-heading-text">Task 2.4: Test and Verify the Code Guardrail</span></div></h2><p>In this task, you trigger the code detector and confirm enforcement
 in the dashboard logs.</p><ol type="1">
 <li><p>Open a browser in <strong>incognito mode</strong> and navigate to
 <a href="https://chatgpt.com/" rel="noopener noreferrer" target="_blank"><strong>https://chatgpt.com</strong></a></p></li>
@@ -238,12 +239,12 @@ prompts below, or your own, to test each detector.</p><ol class="nested-lab-list
 <li><p><strong>Secrets</strong>:</p>
 <ol type="a">
 <li><p>Prompt 1 <span class="expectation expectation-blocked">[blocked]</span>:</p><div class="prompt-card"><button aria-label="Copy this lab text" class="copy-button" type="button">Copy</button>
-<p><strong>Detect the below text</strong></p>
-<p>eyJraWQiOiJtMXZkYm51MG5nN29mIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJpb2tkZzhqcTVjMzJzIiwiYXVkIjpbIlpQQS56cGF0d28ubmV0IiwiaHR0cHM6Ly9hcGkuenNjYWxlci5jb20iLCJaSUEuenNjYWxlci5uZXQiLCJaRFguemR4Y2xvdWQubmV0Il0sIm5iZiI6MTc4NTA3MTM5Mywic2VydmljZS1pbmZvIjpbeyJjYXQiOiJjb25maWciLCJwcmQiOiJaSUEiLCJjbGQiOiJ6c2NhbGVyLm5ldCIsInRudCI6IjE0OTU0MTE5NSIsInBjdCI6ImNvbmZpZyIsImV4dCI6eyJyaWQiOiI5NTcwMyIsInJubSI6IlN1cGVyIEFkbWluIn19LHsiY2F0IjoiY29uZmlnIiwicHJkIjoiWkRYIiwiY2xkIjoiemR4Y2xvdWQubmV0IiwidG50IjoienNjYWxlci5uZXQuMTQ5NTQxMTk1IiwicGN0IjoiY29uZmlnIiwiZXh0Ijp7InJpZCI6Ijk1NzAwIiwicm5tIjoiWkRYIFN1cGVyIEFkbWluIn19LHsiY2F0IjoiY29uZmlnIiwicHJkIjoiWlBBIiwiY2xkIjoienBhdHdvLm5ldCIsInRudCI6IjcyMDU5MTMxNjM2MjE5OTA0IiwicGN0IjoiY29uZmlnIiwiZXh0Ijp7InJpZCI6IjI4Iiwicm5tIjoiQVBJIEZ1bGwgQWNjZXNzIiwic2lkIjoiRGVmYXVsdCIsInNubSI6IkRlZmF1bHQifX1dLCJpc3MiOiJodHRwczovL3pzMDAwMjUwLnpzbG9naW4ubmV0IiwidGVuYW50SWQiOiJnaHZkYm50bXJnNzcyIiwiZXhwIjoxNzg1MDc0OTkzLCJpYXQiOjE3ODUwNzEzOTMsImp0aSI6ImY2ZTlhZjBjLWVkMjUtNGE2NC05NjAwLTgzYjFmMzYyM2ZhYyIsImNsaWVudF9pZCI6Imlva2RnOGpxNWMzMnMifQ.gCcYbhzjBkhli-omuazN_vKbby646JfWGCaucqXYojlizu7G9rR4UttG3FICgQMyDQLZfLFL9GdDnelE7W3kwN34YEZ6CTifpDdNMJamVTffqgXInqu7T0iRoPVTYPiBZSwOLRPVUS9J_An7_rR5jqtMJ2lSYs5hp76awPh9mKIoR3-J3n_rnL7CoKxTdz-DEJRxZtZpHyk4RavtdLB40E4az0AzddoLZU1bIdDdKXujGihHLEadKKkFvidkdTkGBrElcuMN7ccEYDBMFd1Ke6eWSnh4hJWNlz_gLPnPN2Pm03hZTUEVfGV8n92QH4oqnEBDWAVhXHO9gGRPr2OlQA</p>
+<p><strong>What is this key</strong></p>
+<p>ya29.a0AfH6SMBbCdEf123GhIjKlMnOpqrstuvWXyZ</p>
 </div></li>
 <li><p>For Prompt 2 <span class="expectation expectation-blocked">[blocked]</span>, generate your own private key in Windows using PowerShell using the command below, then copy the key content and paste it into the LLM.</p><div class="prompt-card"><button aria-label="Copy this lab text" class="copy-button" type="button">Copy</button>
 <p>ssh-keygen -t ed25519 -C "your_email@example.com"</p>
-</div></li>
+</div><figure><img alt="Workshop screenshot for Task 2.6: Secrets - SSH key generation in PowerShell" decoding="async" loading="lazy" src="assets/images/image-task2-6-secrets.png"/><figcaption>Task 2.6: Secrets – SSH key generation output in PowerShell</figcaption></figure></li>
 </ol></li>
 <li><p><strong>PII</strong>:</p>
 <ol type="a">
@@ -275,11 +276,11 @@ reaches the LLM.</p><ol type="1">
 Masked Content to LLM</strong>, then select <strong>Save
 Changes</strong> and submit the policy.</p></li>
 </ol><figure><img alt="Workshop screenshot for Task 2.7: Configure PII Masking" decoding="async" loading="lazy" src="assets/images/image22.png"/><figcaption>Figure 16: Task 2.7: Configure PII Masking</figcaption></figure><ol start="3" type="1">
-<li><p>Go to <a href="https://chatgpt.com/" rel="noopener noreferrer" target="_blank"><strong>chatgpt.com</strong></a> in a browser
+<li><p>Go to <a href="https://chatgpt.com/" rel="noopener noreferrer" target="_blank"><strong>https://chatgpt.com</strong></a> in a browser
 and enter the prompt below to observe the masking:</p></li>
 </ol><div class="prompt-card"><button aria-label="Copy this lab text" class="copy-button" type="button">Copy</button>
-<p><em><strong>Here's a date of birth: January 01 1991. What would be
-the age of the person in 2050</strong></em></p>
+<p><strong>Here's a date of birth: January 01 1991. What would be
+the age of the person in 2050</strong></p>
 </div><ol start="4" type="1">
 <li><p>Navigate to the <strong>Dashboard</strong>, select
 <strong>Users</strong>, and select the <strong>eye icon</strong> for the
